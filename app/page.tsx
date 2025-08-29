@@ -5,7 +5,7 @@ import { SearchBar } from "@/components/search-bar"
 import { CategoryTabs } from "@/components/category-tabs"
 import { ResultCard } from "@/components/result-card"
 import { DetailModal } from "@/components/detail-modal"
-import { Tabs } from "@/components/ui/tabs"
+import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { incomeCategories, occupationCategories, type IncomeCategory, type OccupationCategory } from "@/lib/income-data"
 import { Calculator, FileText, Briefcase } from "lucide-react"
 
@@ -74,10 +74,11 @@ export default function HomePage() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="income">
+        <Tabs defaultValue="income" className="w-full">
           <CategoryTabs />
+          
           {/* Income Tab Content */}
-          <div value="income" className="space-y-6">
+          <TabsContent value="income" className="space-y-6">
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <FileText className="h-5 w-5 text-primary" />
@@ -115,10 +116,10 @@ export default function HomePage() {
                 <p className="text-muted-foreground">請嘗試使用不同的關鍵字或檢查拼寫</p>
               </div>
             )}
-          </div>
+          </TabsContent>
 
           {/* Occupation Tab Content */}
-          <div value="occupation" className="space-y-6">
+          <TabsContent value="occupation" className="space-y-6">
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Briefcase className="h-5 w-5 text-primary" />
@@ -152,7 +153,7 @@ export default function HomePage() {
                 <p className="text-muted-foreground">請嘗試使用不同的關鍵字或檢查拼寫</p>
               </div>
             )}
-          </div>
+          </TabsContent>
         </Tabs>
       </main>
 
